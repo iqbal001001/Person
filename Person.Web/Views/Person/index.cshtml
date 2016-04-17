@@ -1,0 +1,31 @@
+﻿@model Person.Web.Models.PersonIndexView
+
+<br />
+
+@using (Html.BeginForm("index", "Person", FormMethod.Post))
+{
+    @Html.DropDownList("ddlRace", Model.Races, "-- Select Race --", new { @onchange = "this.form.submit();" })
+}
+
+<br />
+
+<table class="grid">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Height</th>
+    </tr>
+
+    @foreach (var item in Model.Persons)
+    {
+
+        <tr>
+            <td class="left">@item.Name</td>
+            <td class="left">@item.Age</td>
+            <td class="left">@item.Height</td>
+
+        </tr>
+
+        }
+
+</table>
